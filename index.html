@@ -1,417 +1,215 @@
-/* CSS Değişkenleri (Temalar için) */
-:root {
-    --bg-color: #f8f9fa;
-    --text-color: #343a40;
-    --card-bg-color: #ffffff;
-    --header-bg-color: #ffffff;
-    --header-border-color: #e0e0e0;
-    --nav-link-color: #333;
-    --nav-link-hover-color: #0056b3;
-    --nav-link-active-border-color: #0056b3;
-    --hero-bg-image: linear-gradient(rgba(0, 123, 255, 0.8), rgba(0, 86, 179, 0.9)), url('https://placehold.co/1920x600/007bff/ffffff?text=Emloxa+Arka+Plan');
-    --hero-text-color: #ffffff;
-    --primary-color: #007bff;
-    --primary-color-hover: #0056b3;
-    --secondary-color: #28a745;
-    --secondary-color-hover: #218838;
-    --section-title-color: #0056b3;
-    --section-title-border-color: #007bff;
-    --section-paragraph-color: #555;
-    --grid-item-border-color: #e0e0e0;
-    --grid-item-bg-color: #fdfdfd;
-    --grid-item-shadow: 0 6px 12px rgba(0,0,0,0.08);
-    --grid-item-hover-shadow: 0 8px 16px rgba(0,0,0,0.1);
-    --grid-item-title-color: #007bff;
-    --grid-item-text-color: #555;
-    --form-label-color: #444;
-    --form-input-border-color: #ccc;
-    --form-input-bg-color: #fff; /* Form input arkaplanı */
-    --form-input-text-color: #333; /* Form input yazı rengi */
-    --footer-bg-color: #343a40;
-    --footer-text-color: #f8f9fa;
-    --footer-link-color: #00bfff;
-    --theme-toggle-bg: #f0f0f0;
-    --theme-toggle-border: #ccc;
-    --theme-toggle-text: #333;
-}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Emloxa - Dijital dünyada fark yaratan, kullanıcı dostu ve yenilikçi teknolojik çözümler.">
+    <meta name="keywords" content="emloxa, teknoloji, yazılım, inovasyon, dijital çözümler, fuxlens, fps booster, blog, iletişim, açık tema, koyu tema">
+    <meta name="author" content="Emloxa Ekibi">
 
-body.dark-theme {
-    --bg-color: #121212;
-    --text-color: #e0e0e0;
-    --card-bg-color: #1e1e1e;
-    --header-bg-color: #1a1a1a;
-    --header-border-color: #333;
-    --nav-link-color: #e0e0e0;
-    --nav-link-hover-color: #55aaff;
-    --nav-link-active-border-color: #55aaff;
-    --hero-bg-image: linear-gradient(rgba(10, 10, 25, 0.85), rgba(0, 30, 70, 0.9)), url('https://placehold.co/1920x600/1a237e/e8eaf6?text=Emloxa+Koyu+Tema');
-    --hero-text-color: #f0f0f0;
-    --primary-color: #0088cc;
-    --primary-color-hover: #006699;
-    --secondary-color: #3bc866;
-    --secondary-color-hover: #2aa24f;
-    --section-title-color: #55aaff;
-    --section-title-border-color: #0088cc;
-    --section-paragraph-color: #bbb;
-    --grid-item-border-color: #333;
-    --grid-item-bg-color: #1e1e1e;
-    --grid-item-shadow: 0 6px 12px rgba(255,255,255,0.05);
-    --grid-item-hover-shadow: 0 8px 16px rgba(255,255,255,0.08);
-    --grid-item-title-color: #55aaff;
-    --grid-item-text-color: #bbb;
-    --form-label-color: #ccc;
-    --form-input-border-color: #555;
-    --form-input-bg-color: #2a2a2a;
-    --form-input-text-color: #e0e0e0;
-    --footer-bg-color: #1a1a1a;
-    --footer-text-color: #e0e0e0;
-    --footer-link-color: #66ccff;
-    --theme-toggle-bg: #2a2a2a;
-    --theme-toggle-border: #555;
-    --theme-toggle-text: #e0e0e0;
-}
+    <title>Emloxa - Yenilikçi Teknoloji Çözümleri</title>
 
-/* Genel Sayfa Stilleri */
-body {
-    font-family: 'Arial', sans-serif;
-    line-height: 1.6;
-    margin: 0;
-    padding: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    overflow: hidden;
-    padding: 0 20px;
-}
-a {
-    color: var(--primary-color);
-    text-decoration: none;
-}
-a:hover {
-    text-decoration: underline;
-    color: var(--primary-color-hover);
-}
-img {
-    max-width: 100%;
-    height: auto;
-    display: block;
-}
+    <link rel="stylesheet" href="stil.css">
 
-/* Header (Üst Kısım) Stilleri */
-header {
-    background: var(--header-bg-color);
-    color: var(--text-color);
-    padding: 1rem 0;
-    border-bottom: 1px solid var(--header-border-color);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    transition: background-color 0.3s ease, border-bottom-color 0.3s ease;
-}
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-header .site-branding a.logo-link {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
-header .site-branding .logo-svg {
-    width: 40px;
-    height: 40px;
-    margin-right: 10px;
-    vertical-align: middle;
-}
-header .site-branding .logo-svg rect { fill: var(--primary-color); }
-header .site-branding h1.site-title {
-    display: inline;
-    margin: 0;
-    font-size: 1.8em;
-    color: var(--primary-color);
-    vertical-align: middle;
-}
+</head>
+<body>
 
-/* Navigasyon Menüsü Stilleri */
-nav { /* YENİ KURAL: Navigasyonu flex container yap */
-    display: flex;
-    align-items: center;
-}
-nav ul {
-    padding: 0;
-    list-style: none;
-    margin: 0;
-    display: flex;
-    align-items: center;
-}
-nav ul li {
-    display: inline;
-    margin-left: 20px; /* Navigasyon linkleri arasındaki boşluk */
-}
-nav ul li:first-child {
-    margin-left: 0; /* İlk navigasyon linkinin solundaki boşluğu kaldır */
-}
-nav ul li a {
-    color: var(--nav-link-color);
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 1em;
-    padding: 5px 0;
-    transition: color 0.3s ease, border-bottom-color 0.3s ease;
-}
-nav ul li a:hover, nav ul li a.active {
-    color: var(--nav-link-hover-color);
-    border-bottom: 2px solid var(--nav-link-active-border-color);
-}
-#theme-toggle {
-    background-color: var(--theme-toggle-bg);
-    border: 1px solid var(--theme-toggle-border);
-    color: var(--theme-toggle-text);
-    padding: 8px 12px;
-    cursor: pointer;
-    border-radius: 20px;
-    font-size: 1.2em;
-    margin-left: 25px; /* Navigasyon linkleri ile tema düğmesi arasındaki boşluk */
-    line-height: 1;
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, transform 0.2s ease;
-}
-#theme-toggle:hover {
-    opacity: 0.8;
-    transform: scale(1.1);
-}
+    <header id="ana-sayfa-basi">
+        <div class="container">
+            <div class="site-branding">
+                <a href="index.html" class="logo-link">
+                    <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+                        <rect width="100" height="100" rx="15" ry="15"/> <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#ffffff">E</text>
+                    </svg>
+                    <h1 class="site-title">Emloxa</h1>
+                </a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#ana-sayfa-basi" class="active">Ana Sayfa</a></li>
+                    <li><a href="#cozumler">Çözümler</a></li>
+                    <li><a href="#yaklasimimiz">Yaklaşımımız</a></li>
+                    <li><a href="#dosyalar">Dosyalar</a></li>
+                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#iletisim">İletişim</a></li>
+                </ul>
+                <button id="theme-toggle" title="Temayı Değiştir">🌙</button>
+            </nav>
+        </div>
+    </header>
 
-/* Hero (Karşılama) Bölümü */
-.hero {
-    background-image: var(--hero-bg-image);
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    color: var(--hero-text-color);
-    padding: 80px 20px;
-    text-align: center;
-    margin-bottom: 30px;
-    transition: background-image 0.3s ease;
-}
-.hero h2 {
-    font-size: 3em;
-    margin-top: 0;
-    margin-bottom: 20px;
-    font-weight: 700;
-}
-.hero p {
-    font-size: 1.4em;
-    margin-bottom: 30px;
-    line-height: 1.7;
-}
-.cta-button {
-    display: inline-block;
-    background: var(--secondary-color);
-    color: var(--hero-text-color) !important;
-    padding: 14px 32px;
-    text-decoration: none !important;
-    border-radius: 5px;
-    font-size: 1.1em;
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-.cta-button:hover {
-    background: var(--secondary-color-hover);
-    transform: translateY(-2px);
-    text-decoration: none !important;
-}
-.product-button {
-    background-color: var(--primary-color);
-}
-.product-button:hover {
-     background-color: var(--primary-color-hover);
-}
+    <section class="hero" id="hero-bolumu">
+        <div class="container">
+            <h2>Emloxa: Dijital Dünyada Sınırları Aşan Çözümler</h2>
+            <p>Emloxa olarak, dijital dünyada fark yaratan, kullanıcı dostu ve yenilikçi teknolojik çözümler sunarak işletmenizin ve bireysel projelerinizin potansiyelini en üst düzeye çıkarmanıza yardımcı oluyoruz. Geleceğin teknolojilerini bugünden keşfedin!</p>
+            <a href="#dosyalar" class="cta-button">Popüler Dosyalarımızı İnceleyin</a>
+        </div>
+    </section>
 
-/* Ana İçerik ve Kategori Bölümleri */
-main {
-    padding: 20px 0;
-}
-.category-section {
-    background: var(--card-bg-color);
-    padding: 40px;
-    margin-bottom: 30px;
-    border-radius: 8px;
-    box-shadow: var(--grid-item-shadow);
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-}
-.category-section h2.section-title {
-    color: var(--section-title-color);
-    border-bottom: 3px solid var(--section-title-border-color);
-    padding-bottom: 15px;
-    margin-top: 0;
-    margin-bottom: 25px;
-    font-size: 2em;
-    text-align: center;
-}
-.section-intro-text {
-    text-align: center;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 30px;
-    color: var(--section-paragraph-color);
-}
-.category-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 25px;
-}
-.grid-item {
-    border: 1px solid var(--grid-item-border-color);
-    padding: 20px;
-    border-radius: 6px;
-    background-color: var(--grid-item-bg-color);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
-}
-.grid-item:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--grid-item-hover-shadow);
-}
-.grid-item img.item-image {
-    margin-bottom:15px;
-    border-radius:4px;
-    aspect-ratio: 16 / 9;
-    object-fit: cover;
-}
-.grid-item h3 {
-    margin-top: 0;
-    color: var(--grid-item-title-color);
-    font-size: 1.4em;
-    margin-bottom: 10px;
-}
-.grid-item p {
-    flex-grow: 1;
-    margin-bottom: 15px;
-    font-size: 0.95em;
-    color: var(--grid-item-text-color);
-}
-.grid-item p.warning-text {
-    font-weight: bold;
-    color: #dc3545;
-}
-body.dark-theme .grid-item p.warning-text {
-    color: #ff6b6b;
-}
-.grid-item small {
-    color: #777;
-    font-size: 0.85em;
-}
-body.dark-theme .grid-item small {
-    color: #aaa;
-}
+    <main class="container">
+        <section id="cozumler" class="category-section">
+            <h2 class="section-title">İnovatif Çözümlerimiz</h2>
+            <p class="section-intro-text">Teknolojinin sınırlarını zorlayan, yaratıcı ve geleceğe yönelik çözümlerimizle tanışın. Projelerinize değer katacak, verimliliği artıracak ve sizi rekabette bir adım öne taşıyacak inovasyonları burada bulabilirsiniz. Her bir çözüm, ihtiyaçlarınıza özel olarak tasarlanmıştır.</p>
+            <div class="category-grid">
+                <div class="grid-item">
+                    <img src="https://placehold.co/600x338/007bff/ffffff?text=Akıllı+Analiz+Sistemleri" alt="Akıllı Analiz Sistemleri" class="item-image">
+                    <h3>Akıllı Analiz Sistemleri</h3>
+                    <p>Verilerinizi anlamlı bilgilere dönüştüren, karar alma süreçlerinizi optimize eden ve iş zekası kapasitenizi artıran gelişmiş akıllı analiz araçlarımızla tanışın.</p>
+                    <a href="#" class="product-button cta-button" style="font-size:0.9em; padding:10px 20px; width: fit-content; align-self: flex-start;">Daha Fazla Bilgi</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://placehold.co/600x338/28a745/ffffff?text=Otomasyon+Çözümleri" alt="Otomasyon Çözümleri" class="item-image">
+                    <h3>Otomasyon Çözümleri</h3>
+                    <p>Tekrarlayan iş akışlarınızı otomatize ederek zaman ve maliyet tasarrufu sağlayan, operasyonel verimliliğinizi en üst düzeye çıkaran özel yazılım ve otomasyon çözümleri.</p>
+                    <a href="#" class="product-button cta-button" style="font-size:0.9em; padding:10px 20px; width: fit-content; align-self: flex-start;">Çözümleri Keşfet</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://placehold.co/600x338/ffc107/333333?text=API+Entegrasyonları" alt="API Entegrasyonları" class="item-image">
+                    <h3>Gelişmiş API Entegrasyonları</h3>
+                    <p>Farklı platform ve servisler arasında sorunsuz veri akışı sağlayan, sistemlerinizin uyum içinde çalışmasını mümkün kılan, esnek ve güvenli API entegrasyon hizmetleri.</p>
+                    <a href="#" class="product-button cta-button" style="font-size:0.9em; padding:10px 20px; width: fit-content; align-self: flex-start;">Entegrasyon Detayları</a>
+                </div>
+            </div>
+        </section>
 
-/* İletişim Formu */
-#iletisim label {
-    display: block;
-    margin-bottom: 6px;
-    font-weight: bold;
-    color: var(--form-label-color);
-}
-#iletisim input[type="text"],
-#iletisim input[type="email"],
-#iletisim input[type="tel"],
-#iletisim textarea {
-    width: 100%;
-    padding: 12px;
-    margin-bottom: 15px;
-    border: 1px solid var(--form-input-border-color);
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 1em;
-    background-color: var(--form-input-bg-color);
-    color: var(--form-input-text-color);
-    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-}
-#iletisim textarea {
-    min-height: 120px;
-    resize: vertical;
-}
-#iletisim button[type="submit"] {
-    background-color: var(--secondary-color);
-    font-size: 1.1em;
-    padding: 12px 25px;
-    color: var(--hero-text-color) !important;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-#iletisim button[type="submit"]:hover {
-    background-color: var(--secondary-color-hover);
-}
+        <section id="yaklasimimiz" class="category-section">
+            <h2 class="section-title">Müşteri Odaklı Yaklaşımımız</h2>
+            <p class="section-intro-text">Başarımızın temelinde müşterilerimizle kurduğumuz güçlü, şeffaf ve uzun vadeli ilişkiler yatar. İhtiyaçlarınızı dikkatle dinliyor, size özel stratejiler ve çözümler üretiyor, projenizin her aşamasında kesintisiz destek sunarak memnuniyetinizi en üst seviyede tutmayı hedefliyoruz. Sizin başarınız, bizim başarımızdır.</p>
+             <img src="https://placehold.co/1000x400/6f42c1/ffffff?text=Müşteri+Memnuniyeti+Stratejileri" alt="Müşteri Odaklı Yaklaşım Görseli" style="margin-top:15px; border-radius:8px; box-shadow: var(--grid-item-shadow);">
+        </section>
 
-/* Footer (Alt Kısım) */
-footer {
-    text-align: center;
-    padding: 40px 20px;
-    background: var(--footer-bg-color);
-    color: var(--footer-text-color);
-    margin-top: 40px;
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-footer p {
-    margin: 8px 0;
-}
-footer a {
-    color: var(--footer-link-color);
-}
-footer a:hover {
-    color: var(--hero-text-color);
-}
+        <section id="dosyalar" class="category-section">
+            <h2 class="section-title">Popüler Dosyalarımız</h2>
+            <p class="section-intro-text">Aşağıdaki bağlantıları kullanarak çeşitli dosyalara erişebilirsiniz. Lütfen dosyaları kullanmadan önce kaynaklarını, içeriklerini ve olası etkilerini dikkatlice değerlendiriniz.</p>
+            <div class="category-grid">
+                <div class="grid-item">
+                    <img src="https://i.imgur.com/sKf7YXD.png" alt="FUXLENS görseli" class="item-image">
+                    <h3>FUXLENS - virüs</h3>
+                    <p>FUXLENS dosyasına erişmek için aşağıdaki bağlantıyı kullanabilirsiniz. Bu dosya, belirtilen kaynak üzerinden sunulmaktadır.</p>
+                    <p class="warning-text">UYARI: Bu dosya bilgisayarınıza ciddi zararlar verebilir!</p>
+                    <a href="https://www.anonfile.la/a6a0d2" class="cta-button product-button" target="_blank" style="font-size:0.9em; padding:10px 20px; width: fit-content; align-self: flex-start;">Dosyaya Git</a>
+                </div>
+                <div class="grid-item">
+                    <img src="https://i.imgur.com/s9laES2.png" alt="FPS BOOSTER görseli" class="item-image">
+                    <h3>FPS BOOSTER - virüs</h3>
+                    <p>FPS BOOSTER dosyasına erişmek için aşağıdaki bağlantıyı kullanabilirsiniz. Bu dosya, belirtilen kaynak üzerinden sunulmaktadır.</p>
+                    <p>Bu dosya genellikle performansı artırmaya yönelik olsa da, her zaman dikkatli olunmalıdır; ciddi zarar vermez.</p>
+                    <a href="https://www.anonfile.la/070cfa" class="cta-button product-button" target="_blank" style="font-size:0.9em; padding:10px 20px; width: fit-content; align-self: flex-start;">Dosyaya Git</a>
+                </div>
+            </div>
+        </section>
 
-/* Mobil Cihazlar İçin Duyarlılık Ayarları */
-@media (max-width: 768px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
-    }
-    header .site-branding {
-        margin-bottom: 15px;
-    }
-    nav { /* GÜNCELLENDİ: Navigasyon da mobilde dikey hizalansın */
-        flex-direction: column;
-        align-items: center; /* Navigasyon içindeki elemanları ortala */
-    }
-    nav ul {
-        flex-direction: column;
-        align-items: center; /* Navigasyon linklerini ortala */
-        width: 100%; /* Tam genişlik kaplasın */
-    }
-    nav ul li {
-        display: block; /* Zaten bloktu, kalsın */
-        margin: 10px 0;
-        margin-left: 0; /* Soldaki boşluğu sıfırla */
-    }
-    #theme-toggle {
-        margin-top: 15px; /* Navigasyon linklerinden sonra boşluk */
-        margin-left: 0; /* Ortalanacağı için sol boşluğa gerek yok */
-    }
-    .hero h2 {
-        font-size: 2.2em;
-    }
-    .hero p {
-        font-size: 1.1em;
-    }
-    .category-section {
-        padding: 25px;
-    }
-    .category-section h2.section-title {
-        font-size: 1.6em;
-    }
-    .category-grid {
-        grid-template-columns: 1fr;
-    }
-}
+        <section id="blog" class="category-section">
+            <h2 class="section-title">Emloxa Blog: Teknoloji ve İnovasyon</h2>
+            <p class="section-intro-text">Teknoloji dünyasındaki en son gelişmeler, dijital stratejiler, yazılım trendleri, ipuçları, sektörel analizler ve Emloxa'dan güncel haberler için blogumuzu takip edin. Bilgi paylaştıkça çoğalır!</p>
+            <div class="category-grid">
+                <article class="grid-item">
+                    <img src="https://placehold.co/600x338/fd7e14/ffffff?text=Dijital+Dönüşüm+Stratejileri" alt="Dijital Dönüşüm Blog Yazısı" class="item-image">
+                    <h3>Dijital Dönüşümde KOBİ'ler İçin 5 Altın Kural</h3>
+                    <p>Küçük ve orta ölçekli işletmelerin dijitalleşme süreçlerinde dikkat etmeleri gereken kritik noktaları, başarıya ulaşmanın yollarını ve sık yapılan hataları inceliyoruz.</p>
+                    <small>Yayın Tarihi: Haziran 01, 2025</small>
+                    <a href="#" style="margin-top: 10px; font-weight: bold; color: var(--primary-color);">Devamını Oku &rarr;</a>
+                </article>
+                <article class="grid-item">
+                    <img src="https://placehold.co/600x338/17a2b8/ffffff?text=Yapay+Zeka+Trendleri" alt="Yapay Zeka Blog Yazısı" class="item-image">
+                    <h3>Yapay Zeka Destekli Yazılımların Geleceği Parlak Mı?</h3>
+                    <p>Yapay zekanın yazılım geliştirme süreçlerini nasıl kökten değiştirdiğini, otomasyondan kişiselleştirmeye kadar sunduğu fırsatları ve gelecekte bizi nelerin beklediğini keşfedin.</p>
+                    <small>Yayın Tarihi: Mayıs 28, 2025</small>
+                    <a href="#" style="margin-top: 10px; font-weight: bold; color: var(--primary-color);">Devamını Oku &rarr;</a>
+                </article>
+                 <article class="grid-item">
+                    <img src="https://placehold.co/600x338/6610f2/ffffff?text=Veri+Güvenliği+İpuçları" alt="Veri Güvenliği Blog Yazısı" class="item-image">
+                    <h3>Veri Güvenliğinde Proaktif Olmanın Önemi</h3>
+                    <p>Siber tehditlerin arttığı bu dönemde, işletmeler için veri güvenliğini sağlamanın ve proaktif önlemler almanın kritik önemini ele alıyoruz. İpuçları ve stratejiler.</p>
+                    <small>Yayın Tarihi: Mayıs 25, 2025</small>
+                    <a href="#" style="margin-top: 10px; font-weight: bold; color: var(--primary-color);">Devamını Oku &rarr;</a>
+                </article>
+            </div>
+        </section>
+
+        <section id="iletisim" class="category-section">
+            <h2 class="section-title">Bize Ulaşın</h2>
+            <p class="section-intro-text">Sorularınız, projeleriniz, önerileriniz veya işbirliği talepleriniz için bizimle iletişime geçmekten çekinmeyin. Size yardımcı olmaktan mutluluk duyarız!</p>
+            <form action="https://formsubmit.co/gezgelemrullah1@gmail.com" method="POST">
+                <input type="hidden" name="_subject" value="Emloxa Sitesinden Yeni İletişim Formu Mesajı!">
+                <input type="hidden" name="_language" value="tr">
+                <input type="text" name="_honey" style="display:none">
+
+                <div>
+                    <label for="name">Adınız Soyadınız:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div>
+                    <label for="email">E-posta Adresiniz:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div>
+                    <label for="phone">Telefon Numaranız (İsteğe Bağlı):</label>
+                    <input type="tel" id="phone" name="phone"> </div>
+                <div>
+                    <label for="message">Mesajınız:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <div style="text-align: center; margin-top:15px;">
+                    <button type="submit" class="cta-button">Mesajı Gönder</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; <span id="currentYear"></span> Emloxa. Tüm hakları saklıdır. Bu bir demo çalışmasıdır.</p>
+            <p>
+                <a href="gizlilik-politikasi.html">Gizlilik Politikası</a> |
+                <a href="kullanim-sartlari.html">Kullanım Şartları</a> |
+                <a href="#iletisim">İletişim</a>
+            </p>
+            <p style="font-size: 0.9em; margin-top: 15px; color: var(--footer-text-color);">
+                Sitede 'virüs' olarak belirtilen dosyalar bulunmaktadır. Bu dosyaları indirmek ve kullanmak tamamen sizin sorumluluğunuzdadır.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Tema Değiştirme İşlevselliği
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+        const currentYearSpan = document.getElementById('currentYear');
+
+        // Yılı otomatik olarak güncelle
+        if (currentYearSpan) {
+            currentYearSpan.textContent = new Date().getFullYear();
+        }
+
+        // Kayıtlı temayı yükle veya sistem tercihini kullan
+        const loadTheme = () => {
+            const savedTheme = localStorage.getItem('theme');
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+            if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+                body.classList.add('dark-theme');
+                themeToggle.textContent = '☀️'; // Güneş ikonu
+            } else {
+                body.classList.remove('dark-theme');
+                themeToggle.textContent = '🌙'; // Ay ikonu
+            }
+        };
+
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-theme');
+            if (body.classList.contains('dark-theme')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.textContent = '☀️';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.textContent = '🌙';
+            }
+        });
+
+        // Sayfa yüklendiğinde temayı uygula
+        document.addEventListener('DOMContentLoaded', loadTheme);
+    </script>
+
+</body>
+</html>
