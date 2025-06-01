@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Emloxa - Dijital dünyada fark yaratan, kullanıcı dostu ve yenilikçi teknolojik çözümler.">
-    <meta name="keywords" content="emloxa, teknoloji, yazılım, inovasyon, dijital çözümler, fuxlens, fps booster, blog, iletişim, açık tema, koyu tema">
+    <meta name="description" content="Emloxa - Dijital dünyada fark yaratan, kullanıcı dostu ve yenilikçi teknolojik çözümler ve oyun tanıtımları.">
+    <meta name="keywords" content="emloxa, teknoloji, yazılım, inovasyon, dijital çözümler, fuxlens, fps booster, blog, iletişim, açık tema, koyu tema, roblox, oyun reklamı">
     <meta name="author" content="Emloxa Ekibi">
 
-    <title>Emloxa - Yenilikçi Teknoloji Çözümleri</title>
+    <title>Emloxa - Yenilikçi Çözümler ve Oyun Tanıtımı</title>
 
     <link rel="stylesheet" href="stil.css">
 
@@ -19,7 +19,8 @@
             <div class="site-branding">
                 <a href="index.html" class="logo-link">
                     <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-                        <rect width="100" height="100" rx="15" ry="15"/> <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#ffffff">E</text>
+                        <rect width="100" height="100" rx="15" ry="15"/>
+                        <text x="50%" y="55%" dominant-baseline="middle" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#ffffff">E</text>
                     </svg>
                     <h1 class="site-title">Emloxa</h1>
                 </a>
@@ -30,7 +31,7 @@
                     <li><a href="#cozumler">Çözümler</a></li>
                     <li><a href="#yaklasimimiz">Yaklaşımımız</a></li>
                     <li><a href="#dosyalar">Dosyalar</a></li>
-                    <li><a href="#blog">Blog</a></li>
+                    <li><a href="#reklam-bolumu">Reklam</a></li> <li><a href="#blog">Blog</a></li>
                     <li><a href="#iletisim">İletişim</a></li>
                 </ul>
                 <button id="theme-toggle" title="Temayı Değiştir">🌙</button>
@@ -99,6 +100,29 @@
             </div>
         </section>
 
+        <section id="reklam-bolumu" class="category-section advertisement-feature">
+            <h2 class="section-title">Öne Çıkan Oyun: 100x level [TÜRK] Sohbet Oyunu</h2>
+            <div class="advertisement-content">
+                <div class="advertisement-image">
+                    <img src="https://i.imgur.com/HPGad2D.png" alt="100x level TÜRK Sohbet Oyunu Reklam Resmi">
+                </div>
+                <div class="advertisement-details">
+                    <h3>100x level [TÜRK] Sohbet Oyunu</h3>
+                    <p>😏 Eğlenmeye ve sohbet etmeye hakkınız var.</p>
+                    <p><strong>Sohbet Oyunu</strong></p>
+                    <p>👋🏻 Yeni insanlarla sohbet et ve arkadaş ol!</p>
+                    <p><strong>💬 Komutlar 💬</strong></p>
+                    <p>/Headless<br>/Korblox<br>;char me (Kullanıcı adı)</p>
+                    <p>🔔 Favori ve beğeni düğmesine basın!</p>
+                    <p>- Bağış yaparak oyuna katkıda bulunabilirsin 🙂</p>
+                    <div class="advertisement-buttons">
+                        <a href="https://www.roblox.com/tr/games/15927818111/100x-level-T-RK-Sohbet-Oyunu" class="cta-button game-button" target="_blank">Oyuna Git!</a>
+                        <a href="https://www.roblox.com/tr/communities/7871263/T-rk-le-r-gel-sin#!/about" class="cta-button group-button" target="_blank">Oyun Grubu</a>
+                        <a href="https://discord.gg/7sB4hvWpPD" class="cta-button discord-button" target="_blank">Discord Sunucusu</a>
+                    </div>
+                </div>
+            </div>
+        </section>
         <section id="blog" class="category-section">
             <h2 class="section-title">Emloxa Blog: Teknoloji ve İnovasyon</h2>
             <p class="section-intro-text">Teknoloji dünyasındaki en son gelişmeler, dijital stratejiler, yazılım trendleri, ipuçları, sektörel analizler ve Emloxa'dan güncel haberler için blogumuzu takip edin. Bilgi paylaştıkça çoğalır!</p>
@@ -145,7 +169,8 @@
                 </div>
                 <div>
                     <label for="phone">Telefon Numaranız (İsteğe Bağlı):</label>
-                    <input type="tel" id="phone" name="phone"> </div>
+                    <input type="tel" id="phone" name="phone">
+                </div>
                 <div>
                     <label for="message">Mesajınız:</label>
                     <textarea id="message" name="message" rows="5" required></textarea>
@@ -189,25 +214,26 @@
 
             if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
                 body.classList.add('dark-theme');
-                themeToggle.textContent = '☀️'; // Güneş ikonu
+                if (themeToggle) themeToggle.textContent = '☀️';
             } else {
                 body.classList.remove('dark-theme');
-                themeToggle.textContent = '🌙'; // Ay ikonu
+                if (themeToggle) themeToggle.textContent = '🌙';
             }
         };
 
-        themeToggle.addEventListener('click', () => {
-            body.classList.toggle('dark-theme');
-            if (body.classList.contains('dark-theme')) {
-                localStorage.setItem('theme', 'dark');
-                themeToggle.textContent = '☀️';
-            } else {
-                localStorage.setItem('theme', 'light');
-                themeToggle.textContent = '🌙';
-            }
-        });
-
-        // Sayfa yüklendiğinde temayı uygula
+        if (themeToggle) {
+            themeToggle.addEventListener('click', () => {
+                body.classList.toggle('dark-theme');
+                if (body.classList.contains('dark-theme')) {
+                    localStorage.setItem('theme', 'dark');
+                    themeToggle.textContent = '☀️';
+                } else {
+                    localStorage.setItem('theme', 'light');
+                    themeToggle.textContent = '🌙';
+                }
+            });
+        }
+        
         document.addEventListener('DOMContentLoaded', loadTheme);
     </script>
 
