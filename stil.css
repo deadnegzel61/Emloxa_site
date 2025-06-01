@@ -415,3 +415,131 @@ footer a:hover {
         grid-template-columns: 1fr;
     }
 }
+
+/* Reklam Bölümü Özel Stilleri (Önceki stillere ek olarak) */
+.advertisement-feature {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color-hover) 100%); /* Canlı bir gradient */
+    color: var(--hero-text-color); /* Açık renk metin */
+    padding: 40px;
+    border-radius: 12px; /* Daha belirgin yuvarlak köşeler */
+    margin-top: 40px; /* Üstteki bölümle arasına boşluk */
+    margin-bottom: 40px; /* Alttaki bölümle arasına boşluk */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25); /* Daha derin bir gölge */
+}
+
+.advertisement-feature .section-title {
+    color: #ffffff; /* Başlık rengi beyaz */
+    border-bottom-color: rgba(255,255,255,0.3); /* Başlık alt çizgisi daha yumuşak */
+    font-size: 2.2em; /* Başlık biraz daha büyük */
+    margin-bottom: 30px; /* Başlık ile içerik arası boşluk */
+}
+
+.advertisement-content {
+    display: flex;
+    gap: 35px; /* Resim ve detaylar arası boşluk */
+    align-items: flex-start; /* İçerikleri yukarı yasla */
+    margin-top: 25px;
+}
+
+.advertisement-image {
+    flex: 0 0 320px; /* Resim için sabit genişlik */
+    border-radius: 10px; /* Resim köşeleri yuvarlak */
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2); /* Resme hafif gölge */
+    border: 3px solid rgba(255,255,255,0.5); /* Resme ince beyaz çerçeve */
+}
+
+.advertisement-image img {
+    width: 100%;
+    display: block;
+    border-radius: 7px; /* İç resmin de köşeleri hafif yuvarlak olsun */
+}
+
+.advertisement-details {
+    flex: 1;
+    text-align: left; /* Detaylar sola yaslı */
+}
+
+.advertisement-details h3 {
+    font-size: 2.2em; /* Oyun adı daha büyük */
+    margin-top: 0;
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-weight: 700; /* Daha kalın */
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3); /* Metne hafif gölge */
+}
+
+.advertisement-details p {
+    font-size: 1.05em; /* Açıklama metni biraz daha büyük */
+    line-height: 1.7;
+    margin-bottom: 12px;
+    color: #e0e0e0; /* Çok beyaz olmayan, okunabilir bir renk */
+}
+.advertisement-details p strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.advertisement-buttons {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap; /* Butonlar sığmazsa alt satıra geçsin */
+}
+
+.advertisement-buttons .cta-button { /* Mevcut .cta-button stilini özelleştiriyoruz */
+    background-color: rgba(255,255,255,0.15); /* Daha şeffaf */
+    color: #ffffff !important;
+    border: 2px solid rgba(255,255,255,0.7); /* Daha belirgin çerçeve */
+    padding: 12px 24px; /* Buton içi boşluk */
+    font-size: 1em;
+    border-radius: 8px; /* Buton köşeleri daha yuvarlak */
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+}
+
+.advertisement-buttons .cta-button:hover {
+    background-color: rgba(255,255,255,0.3);
+    border-color: #ffffff;
+    transform: translateY(-2px) scale(1.02); /* Hover efekti */
+}
+
+/* Reklam Bölümü için Mobil Uyum Ayarları (Önceki genel mobil ayarlarına ek olarak) */
+@media (max-width: 992px) {
+    .advertisement-content { /* Reklam bölümü için özel orta ekran ayarı */
+        gap: 25px;
+    }
+    .advertisement-image {
+        flex: 0 0 280px;
+    }
+    .advertisement-details h3 {
+        font-size: 1.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Reklam bölümünün mobil stilleri zaten genel mobil stiller içinde ele alınmıştı,
+       ancak gerekirse burada .advertisement-feature içindeki elemanlara özel
+       daha fazla ince ayar yapılabilir. Örneğin: */
+    .advertisement-feature .section-title { /* Reklam başlığının mobildeki boyutu */
+        font-size: 1.8em;
+    }
+    .advertisement-content { /* Zaten genel mobil ayarlarında flex-direction: column; vardı */
+        /* align-items: center; zaten genel mobil ayarlarında header içindeki nav için vardı, buraya da eklenebilir */
+    }
+    .advertisement-image {
+        width: 85%; /* Zaten genel mobil ayarlarında benzer bir mantık vardı */
+        max-width: 300px;
+        margin-bottom: 25px;
+    }
+    .advertisement-details {
+        text-align: center; /* Zaten genel mobil ayarlarında benzer bir mantık vardı */
+    }
+    .advertisement-buttons {
+        justify-content: center; /* Zaten genel mobil ayarlarında benzer bir mantık vardı */
+        gap: 10px;
+    }
+    .advertisement-buttons .cta-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+}
