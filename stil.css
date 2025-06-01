@@ -139,7 +139,7 @@ header .site-branding h1.site-title {
 }
 
 /* Navigasyon Menüsü Stilleri */
-nav { /* YENİ KURAL: Navigasyonu flex container yap */
+nav {
     display: flex;
     align-items: center;
 }
@@ -381,23 +381,23 @@ footer a:hover {
     header .site-branding {
         margin-bottom: 15px;
     }
-    nav { /* GÜNCELLENDİ: Navigasyon da mobilde dikey hizalansın */
+    nav {
         flex-direction: column;
-        align-items: center; /* Navigasyon içindeki elemanları ortala */
+        align-items: center;
     }
     nav ul {
         flex-direction: column;
-        align-items: center; /* Navigasyon linklerini ortala */
-        width: 100%; /* Tam genişlik kaplasın */
+        align-items: center;
+        width: 100%;
     }
     nav ul li {
-        display: block; /* Zaten bloktu, kalsın */
+        display: block;
         margin: 10px 0;
-        margin-left: 0; /* Soldaki boşluğu sıfırla */
+        margin-left: 0;
     }
     #theme-toggle {
-        margin-top: 15px; /* Navigasyon linklerinden sonra boşluk */
-        margin-left: 0; /* Ortalanacağı için sol boşluğa gerek yok */
+        margin-top: 15px;
+        margin-left: 0;
     }
     .hero h2 {
         font-size: 2.2em;
