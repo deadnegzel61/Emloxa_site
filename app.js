@@ -6,16 +6,14 @@ const messageBox = document.getElementById("message");
 function signup() {
   const email = emailInput.value.trim();
   const password = passwordInput.value;
-
-  if (!email || !password) return showMessage("Alanlar boş olamaz!");
-
+  if (!email || !password) return showMessage("Boş alan olamaz!");
+  
   const users = JSON.parse(localStorage.getItem("users") || "{}");
-
   if (users[email]) return showMessage("Bu e-posta zaten kayıtlı!");
 
-  users[email] = { password, verified: true }; // e-posta doğrulama yerine true
+  users[email] = { password };
   localStorage.setItem("users", JSON.stringify(users));
-  showMessage("Kayıt başarılı. Şimdi giriş yapabilirsiniz.", "green");
+  showMessage("Kayıt başarılı. Şimdi giriş yap.", "green");
 }
 
 function login() {
@@ -24,9 +22,7 @@ function login() {
   const users = JSON.parse(localStorage.getItem("users") || "{}");
 
   if (!users[email]) return showMessage("Kullanıcı bulunamadı.");
-  if (users[email].password !== password) return showMessage("Şifre yanlış.");
-
-  if (!users[email].verified) return showMessage("E-posta doğrulanmadı.");
+  if (users[email].password !== password) return showMessage("Şifre hatalı.");
 
   if (rememberCheckbox.checked) {
     localStorage.setItem("session", email);
@@ -34,19 +30,10 @@ function login() {
     sessionStorage.setItem("session", email);
   }
 
-  showMessage("Giriş başarılı!", "green");
-  // Gerçek projede yönlendirme yapılır: window.location.href = "panel.html"
+  window.location.href = "dashboard.html";
 }
 
-function showMessage(msg, color = "red") {
-  messageBox.textContent = msg;
+function showMessage(text, color = "red") {
+  messageBox.textContent = text;
   messageBox.style.color = color;
 }
-
-// Otomatik giriş:
-window.onload = () => {
-  const session = localStorage.getItem("session") || sessionStorage.getItem("session");
-  if (session) {
-    showMessage("Zaten giriş yapılmış: " + session, "green");
-  }
-};
