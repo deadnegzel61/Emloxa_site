@@ -12,18 +12,22 @@
   </div>
   <div class="content">
     <h1>🎉 Hoş geldin!</h1>
-    <p>Burası giriş sonrası sayfa.</p>
+    <p>Burası giriş sonrası panel sayfası.</p>
   </div>
+
   <script>
     const email = localStorage.getItem("session") || sessionStorage.getItem("session");
+    const censoredEmail = localStorage.getItem("censoredEmail") || email;
+
     if (!email) {
       window.location.href = "index.html";
     } else {
-      document.getElementById("user-email").textContent = email;
+      document.getElementById("user-email").textContent = censoredEmail;
     }
 
     function logout() {
       localStorage.removeItem("session");
+      localStorage.removeItem("censoredEmail");
       sessionStorage.removeItem("session");
       window.location.href = "index.html";
     }
