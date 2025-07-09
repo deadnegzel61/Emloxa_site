@@ -1,4 +1,17 @@
-/* Canvas tüm sayfayı kaplasın */
+/* Body ve html tüm ekranı kaplasın */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+  display: flex;
+  justify-content: center; /* Yatayda ortala */
+  align-items: center;     /* Dikeyde ortala */
+  overflow: hidden;        /* Kayma önler */
+}
+
+/* Canvas arka plan tam ekran */
 #bg-canvas {
   position: fixed;
   top: 0; left: 0;
@@ -8,16 +21,7 @@
   background: linear-gradient(to right, #00c6ff, #0072ff);
 }
 
-/* Form kutusu */
-body {
-  margin: 0;
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
+/* Form kutusu ortada, genişlik sınırlı */
 .form-box {
   background: rgba(255 255 255 / 0.95);
   padding: 40px;
@@ -30,6 +34,7 @@ body {
   z-index: 10;
 }
 
+/* Giriş inputları */
 input[type="email"],
 input[type="password"] {
   width: 100%;
@@ -38,6 +43,8 @@ input[type="password"] {
   border-radius: 6px;
   border: 1px solid #ccc;
 }
+
+/* Checkbox label */
 .checkbox-label {
   display: flex;
   align-items: center;
@@ -49,11 +56,15 @@ input[type="password"] {
   font-size: 14px;
   color: #333;
 }
+
+/* Checkbox boyutu */
 .checkbox-label input[type="checkbox"] {
   cursor: pointer;
   width: 18px;
   height: 18px;
 }
+
+/* Butonlar */
 button {
   width: 100%;
   padding: 12px;
@@ -67,14 +78,18 @@ button {
   font-size: 16px;
   transition: background 0.3s ease;
 }
+
 button:hover {
   background: #005dd1;
 }
+
+/* Mesaj alanı */
 #message {
   margin-top: 12px;
   font-weight: 600;
   color: red;
 }
+
 @keyframes fadeIn {
   from {
     opacity: 0;
