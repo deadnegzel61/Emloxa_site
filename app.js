@@ -1,15 +1,17 @@
-const emailInput = document.getElementById("email");
-const passwordInput = document.getElementById("password");
-const rememberCheckbox = document.getElementById("remember");
-const messageBox = document.getElementById("message");
+function showMessage(text, color = "red") {
+  const message = document.getElementById("message");
+  message.textContent = text;
+  message.style.color = color;
+}
 
 function signup() {
-  const email = emailInput.value.trim();
-  const password = passwordInput.value;
-  if (!email || !password) return showMessage("Boş alan olamaz!");
-  
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+
+  if (!email || !password) return showMessage("Alanlar boş olamaz!");
+
   const users = JSON.parse(localStorage.getItem("users") || "{}");
-  if (users[email]) return showMessage("Bu e-posta zaten kayıtlı!");
+  if (users[email]) return showMessage("Zaten kayıtlı.");
 
   users[email] = { password };
   localStorage.setItem("users", JSON.stringify(users));
@@ -17,23 +19,21 @@ function signup() {
 }
 
 function login() {
-  const email = emailInput.value.trim();
-  const password = passwordInput.value;
+  const email = document.getElementById("email").value.trim();
+  const password = document.getElementById("password").value;
+  const remember = document.getElementById("remember").checked;
+
   const users = JSON.parse(localStorage.getItem("users") || "{}");
 
-  if (!users[email]) return showMessage("Kullanıcı bulunamadı.");
-  if (users[email].password !== password) return showMessage("Şifre hatalı.");
+  if (!users[email] || users[email].password !== password) {
+    return showMessage("E-posta veya şifre yanlış.");
+  }
 
-  if (rememberCheckbox.checked) {
+  if (remember) {
     localStorage.setItem("session", email);
   } else {
     sessionStorage.setItem("session", email);
   }
 
   window.location.href = "dashboard.html";
-}
-
-function showMessage(text, color = "red") {
-  messageBox.textContent = text;
-  messageBox.style.color = color;
 }
