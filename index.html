@@ -6,6 +6,8 @@
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <canvas id="bg-canvas"></canvas>
+
   <div class="form-box">
     <h2>🚀 Giriş / Kayıt</h2>
     <input type="email" id="email" placeholder="E-posta" />
@@ -22,9 +24,8 @@
   </div>
 
   <script src="app.js"></script>
-
+  <script src="particles.js"></script> <!-- Yeni -->
   <script>
-    // Butonlara event listener ekliyoruz
     document.getElementById('signup-btn').addEventListener('click', signup);
     document.getElementById('login-btn').addEventListener('click', login);
   </script>
