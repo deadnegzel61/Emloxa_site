@@ -1,8 +1,9 @@
+<!-- dashboard.html -->
 <!DOCTYPE html>
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Kontrol Paneli</title>
+  <title>Panel</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -12,8 +13,22 @@
   </div>
   <div class="content">
     <h1>🎉 Hoş geldin!</h1>
-    <p>Burası giriş sonrası gelen panel.</p>
+    <p>Burası giriş sonrası panel sayfası.</p>
   </div>
-  <script src="dashboard.js"></script>
+
+  <script>
+    const email = localStorage.getItem("session") || sessionStorage.getItem("session");
+    if (!email) {
+      window.location.href = "index.html";
+    } else {
+      document.getElementById("user-email").textContent = email;
+    }
+
+    function logout() {
+      localStorage.removeItem("session");
+      sessionStorage.removeItem("session");
+      window.location.href = "index.html";
+    }
+  </script>
 </body>
 </html>
