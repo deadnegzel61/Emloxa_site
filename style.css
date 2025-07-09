@@ -1,81 +1,38 @@
-/* Body ve html tüm ekranı kaplasın */
-html, body {
-  margin: 0;
-  padding: 0;
+body, html {
   height: 100%;
+  margin: 0; padding: 0;
   font-family: 'Segoe UI', sans-serif;
   background: linear-gradient(to right, #00c6ff, #0072ff);
   display: flex;
-  justify-content: center; /* Yatayda ortala */
-  align-items: center;     /* Dikeyde ortala */
-  overflow: hidden;        /* Kayma önler */
+  justify-content: center;
+  align-items: center;
 }
 
-/* Canvas arka plan tam ekran */
-#bg-canvas {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100vw;
-  height: 100vh;
-  z-index: -1;
-  background: linear-gradient(to right, #00c6ff, #0072ff);
-}
-
-/* Form kutusu ortada, genişlik sınırlı */
 .form-box {
   background: rgba(255 255 255 / 0.95);
   padding: 40px;
   border-radius: 12px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+  width: 450px;      /* Masaüstü genişliği */
+  max-width: 90vw;   /* Dar ekran için uyum */
   text-align: center;
-  width: 350px;
-  animation: fadeIn 0.8s ease-in;
-  position: relative;
-  z-index: 10;
 }
 
-/* Giriş inputları */
-input[type="email"],
-input[type="password"] {
+input, button {
   width: 100%;
+  padding: 14px;
   margin: 10px 0;
-  padding: 12px;
   border-radius: 6px;
   border: 1px solid #ccc;
+  font-size: 18px;
 }
 
-/* Checkbox label */
-.checkbox-label {
-  display: flex;
-  align-items: center;
-  margin: 12px 0;
-  cursor: pointer;
-  user-select: none;
-  gap: 8px;
-  font-weight: 600;
-  font-size: 14px;
-  color: #333;
-}
-
-/* Checkbox boyutu */
-.checkbox-label input[type="checkbox"] {
-  cursor: pointer;
-  width: 18px;
-  height: 18px;
-}
-
-/* Butonlar */
 button {
-  width: 100%;
-  padding: 12px;
-  margin-top: 10px;
+  border: none;
   background: #0072ff;
   color: white;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
   font-weight: 700;
-  font-size: 16px;
+  cursor: pointer;
   transition: background 0.3s ease;
 }
 
@@ -83,20 +40,35 @@ button:hover {
   background: #005dd1;
 }
 
-/* Mesaj alanı */
-#message {
-  margin-top: 12px;
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   font-weight: 600;
-  color: red;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: scale(0.95);
+label input[type=checkbox] {
+  width: 18px;
+  height: 18px;
+}
+
+#message {
+  color: red;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* Responsive telefon ve tablet */
+@media (max-width: 600px) {
+  .form-box {
+    width: 90vw;
+    padding: 30px 20px;
   }
-  to {
-    opacity: 1;
-    transform: scale(1);
+  input, button {
+    font-size: 16px;
+    padding: 12px;
   }
 }
