@@ -1,21 +1,35 @@
+/* Canvas tüm sayfayı kaplasın */
+#bg-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: linear-gradient(to right, #00c6ff, #0072ff);
+}
+
+/* Form kutusu */
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(to right, #00c6ff, #0072ff);
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
 }
+
 .form-box {
-  background: white;
+  background: rgba(255 255 255 / 0.95);
   padding: 40px;
   border-radius: 12px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
   text-align: center;
   width: 350px;
   animation: fadeIn 0.8s ease-in;
+  position: relative;
+  z-index: 10;
 }
+
 input[type="email"],
 input[type="password"] {
   width: 100%;
