@@ -1,33 +1,81 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <title>Giriş / Kayıt</title>
-  <link rel="stylesheet" href="style.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Ortalanmış Form</title>
+<style>
+  html, body {
+    height: 100%;
+    margin: 0; padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #00c6ff, #0072ff);
+    font-family: 'Segoe UI', sans-serif;
+  }
+  .form-box {
+    background: rgba(255 255 255 / 0.95);
+    padding: 40px;
+    border-radius: 12px;
+    width: 350px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.2);
+    text-align: center;
+  }
+  input, button {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+  }
+  button {
+    border: none;
+    background: #0072ff;
+    color: white;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  button:hover {
+    background: #005dd1;
+  }
+  label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+  }
+  label input[type=checkbox] {
+    width: 18px;
+    height: 18px;
+  }
+  #message {
+    color: red;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+</style>
 </head>
 <body>
-  <canvas id="bg-canvas"></canvas>
-
   <div class="form-box">
-    <h2>🚀 Giriş / Kayıt</h2>
+    <h2>Giriş / Kayıt</h2>
     <input type="email" id="email" placeholder="E-posta" />
     <input type="password" id="password" placeholder="Şifre" />
-
-    <label class="checkbox-label">
-      <input type="checkbox" id="remember" />
-      <span>Beni Hatırla</span>
-    </label>
-
+    <label><input type="checkbox" id="remember" /> Beni Hatırla</label>
     <button id="signup-btn">Kayıt Ol</button>
     <button id="login-btn">Giriş Yap</button>
     <p id="message"></p>
   </div>
 
-  <script src="app.js"></script>
-  <script src="particles.js"></script> <!-- Yeni -->
   <script>
-    document.getElementById('signup-btn').addEventListener('click', signup);
-    document.getElementById('login-btn').addEventListener('click', login);
+    // Basit örnek: Butonlar çalışıyor mu diye alert verelim
+    document.getElementById('signup-btn').onclick = () => alert('Kayıt butonuna tıklandı');
+    document.getElementById('login-btn').onclick = () => alert('Giriş butonuna tıklandı');
   </script>
 </body>
 </html>
