@@ -1,21 +1,19 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8">
-  <title>Giriş & Kayıt</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <title>Giriş / Kayıt</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <div class="form-box">
-      <h2 class="fade-in">🚀 Giriş / Kayıt</h2>
-      <input type="email" id="email" placeholder="E-posta" class="slide-in">
-      <input type="password" id="password" placeholder="Şifre" class="slide-in">
-      <label><input type="checkbox" id="remember"> Beni Hatırla</label>
-      <button onclick="signup()" class="btn zoom">Kayıt Ol</button>
-      <button onclick="login()" class="btn fade-in">Giriş Yap</button>
-      <p id="message" class="message"></p>
-    </div>
+  <div class="form-box">
+    <h2>🚀 Giriş / Kayıt</h2>
+    <input type="email" id="email" placeholder="E-posta" />
+    <input type="password" id="password" placeholder="Şifre" />
+    <label><input type="checkbox" id="remember" /> Beni Hatırla</label>
+    <button onclick="signup()">Kayıt Ol</button>
+    <button onclick="login()">Giriş Yap</button>
+    <p id="message"></p>
   </div>
   <script src="app.js"></script>
 </body>
