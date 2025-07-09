@@ -11,11 +11,11 @@ function signup() {
   if (!email || !password) return showMessage("Alanlar boş olamaz!");
 
   const users = JSON.parse(localStorage.getItem("users") || "{}");
-  if (users[email]) return showMessage("Zaten kayıtlı.");
+  if (users[email]) return showMessage("Bu e-posta zaten kayıtlı!");
 
   users[email] = { password };
   localStorage.setItem("users", JSON.stringify(users));
-  showMessage("Kayıt başarılı. Şimdi giriş yap.", "green");
+  showMessage("Kayıt başarılı. Şimdi giriş yapabilirsin.", "green");
 }
 
 function login() {
