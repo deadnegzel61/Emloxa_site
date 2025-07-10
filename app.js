@@ -1,35 +1,34 @@
 function showMessage(text, color = "red") {
-  const message = document.getElementById("message");
-  message.textContent = text;
-  message.style.color = color;
+  const msg = document.getElementById("message");
+  msg.textContent = text;
+  msg.style.color = color;
 }
 
 function signup() {
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
 
-  if (!email || !password) return showMessage("Alanlar boş olamaz!");
-  if (!email.includes("@")) return showMessage("Geçerli bir e-posta girin (@ şart)");
+  if (!email || !password) return showMessage("Boş alan kalmasın!");
+  if (!email.includes('@')) return showMessage("Geçerli e-posta girin!");
 
   const users = JSON.parse(localStorage.getItem("users") || "{}");
-  if (users[email]) return showMessage("Bu e-posta zaten kayıtlı.");
+  if (users[email]) return showMessage("Zaten kayıtlı!");
 
   users[email] = { password };
   localStorage.setItem("users", JSON.stringify(users));
-  showMessage("✅ Kayıt başarılı. Giriş yapabilirsiniz.", "green");
+  showMessage("✔ Kayıt başarılı. Şimdi giriş yapın.", "green");
 }
 
 function censorEmail(email) {
   const [name, domain] = email.split('@');
-  const visible = name.length > 2 ? name.slice(0, 2) + '****' : name[0] + '****';
-  return visible + '@' + domain;
+  const masked = name.slice(0, 2) + "****";
+  return masked + "@" + domain;
 }
 
 function login() {
   const email = document.getElementById("email").value.trim();
   const password = document.getElementById("password").value;
   const remember = document.getElementById("remember").checked;
-
   const users = JSON.parse(localStorage.getItem("users") || "{}");
 
   if (!users[email] || users[email].password !== password) {
@@ -44,6 +43,5 @@ function login() {
 
   localStorage.setItem("censoredEmail", censorEmail(email));
 
-  // 🚫 Artık mesaj gösterilmiyor, direkt yönlendirme
   window.location.href = "dashboard.html";
 }
