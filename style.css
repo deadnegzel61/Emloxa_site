@@ -1,13 +1,25 @@
-body, html {
+html, body {
   height: 100%;
   margin: 0;
-  padding: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #ff4e50, #f9d423); /* kırmızı-turuncu geçiş */
+  background: linear-gradient(135deg, #ff4e50, #f9d423); /* kırmızımsı degrade */
   display: flex;
   justify-content: center;
   align-items: center;
   overflow: hidden;
+  transition: background 0.4s ease;
+}
+
+body.dark {
+  background: #1a1a1a;
+}
+
+#bg-canvas {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
 }
 
 .form-box {
@@ -19,6 +31,11 @@ body, html {
   max-width: 90vw;
   text-align: center;
   animation: fadeIn 0.8s ease;
+}
+
+body.dark .form-box {
+  background: rgba(20, 20, 20, 0.95);
+  color: white;
 }
 
 input, button {
@@ -43,7 +60,7 @@ button:hover {
   background: #d8343d;
 }
 
-label {
+label.checkbox-label {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -53,9 +70,22 @@ label {
   cursor: pointer;
 }
 
-label input[type=checkbox] {
+.checkbox-label input[type=checkbox] {
   width: 18px;
   height: 18px;
+}
+
+.password-wrapper {
+  position: relative;
+}
+.password-wrapper button {
+  position: absolute;
+  top: 12px;
+  right: 10px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
 }
 
 #message {
@@ -64,25 +94,11 @@ label input[type=checkbox] {
   margin-top: 10px;
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.mode-switch {
+  margin: 10px 0;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  .form-box {
-    width: 90vw;
-    padding: 30px 20px;
-  }
-  input, button {
-    font-size: 15px;
-    padding: 12px;
-  }
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
