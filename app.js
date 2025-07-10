@@ -9,21 +9,20 @@ function signup() {
   const password = document.getElementById("password").value;
 
   if (!email || !password) return showMessage("Alanlar boş olamaz!");
-
-  if (!email.includes('@')) return showMessage("Geçerli bir e-posta girin (@ olmalı).");
+  if (!email.includes("@")) return showMessage("Geçerli bir e-posta girin (@ şart)");
 
   const users = JSON.parse(localStorage.getItem("users") || "{}");
   if (users[email]) return showMessage("Bu e-posta zaten kayıtlı.");
 
   users[email] = { password };
   localStorage.setItem("users", JSON.stringify(users));
-  showMessage("Kayıt başarılı. Şimdi giriş yapabilirsiniz.", "green");
+  showMessage("✅ Kayıt başarılı. Giriş yapabilirsiniz.", "green");
 }
 
 function censorEmail(email) {
   const [name, domain] = email.split('@');
-  const censoredName = name.length > 2 ? name.slice(0, 2) + '****' : name[0] + '****';
-  return censoredName + '@' + domain;
+  const visible = name.length > 2 ? name.slice(0, 2) + '****' : name[0] + '****';
+  return visible + '@' + domain;
 }
 
 function login() {
@@ -43,8 +42,8 @@ function login() {
     sessionStorage.setItem("session", email);
   }
 
-  // Email'i sansürlü olarak dashboard'a gönderiyoruz:
   localStorage.setItem("censoredEmail", censorEmail(email));
 
+  // 🚫 Artık mesaj gösterilmiyor, direkt yönlendirme
   window.location.href = "dashboard.html";
 }
