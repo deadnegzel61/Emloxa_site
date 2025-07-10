@@ -2,33 +2,46 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <title>Kontrol Paneli</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Dashboard</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #f9f9f9;
+    }
+    .top-bar {
+      background: #333;
+      color: white;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    .content {
+      padding: 30px;
+    }
+  </style>
 </head>
 <body>
   <div class="top-bar">
-    <span id="user-email"></span>
+    <div id="user-email"></div>
     <button onclick="logout()">Çıkış Yap</button>
   </div>
   <div class="content">
-    <h1>🎉 Hoş geldin!</h1>
-    <p>Burası giriş sonrası panel sayfası.</p>
+    <h1>Giriş başarılı 🎉</h1>
+    <p>Burası kontrol panelin.</p>
   </div>
 
   <script>
     const email = localStorage.getItem("session") || sessionStorage.getItem("session");
-    const censoredEmail = localStorage.getItem("censoredEmail") || email;
+    const masked = localStorage.getItem("censoredEmail");
 
-    if (!email) {
-      window.location.href = "index.html";
-    } else {
-      document.getElementById("user-email").textContent = censoredEmail;
-    }
+    if (!email) window.location.href = "index.html";
+    document.getElementById("user-email").textContent = masked || email;
 
     function logout() {
       localStorage.removeItem("session");
-      localStorage.removeItem("censoredEmail");
       sessionStorage.removeItem("session");
+      localStorage.removeItem("censoredEmail");
       window.location.href = "index.html";
     }
   </script>
