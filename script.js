@@ -30,11 +30,10 @@ form.addEventListener("submit", (e) => {
   }
 
   if (isLogin) {
-    // Giriş başarılı → yönlendirme (GitHub Pages uyumlu)
     console.log("Giriş başarılı → yönlendiriliyor...");
-    window.location.href = "./friends.html";
+    window.location.href = "https://deadnegzel61.github.io/Emloxa_site/friends.html";
   } else {
     alert("Kayıt başarılı! Şimdi giriş yapabilirsin.");
-    toggleLink.click(); // Giriş moduna geç
+    toggleLink.click();
   }
 });
