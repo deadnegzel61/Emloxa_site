@@ -1,64 +1,171 @@
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background: linear-gradient(135deg, #1c0036, #2b0055);
   color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .container {
   display: flex;
-  height: 100vh;
+  width: 90vw;
+  height: 90vh;
+  background: #120022;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 0 20px #a94eff;
 }
 
 .sidebar {
-  width: 250px;
-  background: #110022;
-  padding: 20px;
-  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+  width: 280px;
+  background: #220044;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  overflow-y: auto;
 }
 
 .sidebar h2 {
-  font-size: 1.2em;
-  margin-bottom: 10px;
+  margin: 0;
   color: #cc99ff;
 }
 
-.sidebar ul {
+#my-profile {
+  background: #330055;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+}
+
+#friend-list,
+#requests-list {
   list-style: none;
   padding: 0;
+  max-height: 150px;
+  overflow-y: auto;
+  border: 1px solid #6600cc;
+  border-radius: 8px;
 }
 
-.sidebar li {
-  padding: 8px 0;
-  border-bottom: 1px solid #333;
-}
-
-.main {
-  flex: 1;
-  padding: 20px;
-}
-
-.user-card {
-  background: #220044;
-  margin-bottom: 10px;
-  padding: 15px;
-  border-radius: 10px;
+#friend-list li,
+#requests-list li {
+  padding: 6px 8px;
+  border-bottom: 1px solid #550077;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.user-card button {
-  background: #aa00ff;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
+#friend-list li:last-child,
+#requests-list li:last-child {
+  border-bottom: none;
 }
 
-.user-card button:disabled {
-  background: #444;
+#requests-list button {
+  background: #aa00ff;
+  border: none;
+  color: white;
+  padding: 4px 8px;
+  margin-left: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#requests-list button:hover {
+  background: #cc33ff;
+}
+
+#add-friend-input {
+  width: 100%;
+  padding: 8px;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  font-size: 1em;
+}
+
+#send-request-btn {
+  margin-top: 8px;
+  width: 100%;
+  padding: 10px;
+  background: #aa00ff;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#send-request-btn:disabled {
+  background: #550077;
+  cursor: not-allowed;
+}
+
+.main-chat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  background: #1a0033;
+}
+
+#chat-header {
+  padding: 15px;
+  background: #330066;
+  font-weight: bold;
+  border-bottom: 1px solid #550077;
+}
+
+#chat-messages {
+  flex: 1;
+  padding: 15px;
+  overflow-y: auto;
+  background: #220044;
+}
+
+.message {
+  margin-bottom: 10px;
+  padding: 10px;
+  background: #8000ff99;
+  border-radius: 12px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+.input-area {
+  padding: 10px;
+  background: #330066;
+  display: flex;
+  gap: 10px;
+}
+
+#message-input {
+  flex: 1;
+  border-radius: 12px;
+  border: none;
+  padding: 10px;
+  font-size: 1em;
+  background: #440077;
+  color: white;
+}
+
+#send-msg-btn {
+  background: #aa00ff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 12px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#send-msg-btn:disabled {
+  background: #550077;
   cursor: not-allowed;
 }
