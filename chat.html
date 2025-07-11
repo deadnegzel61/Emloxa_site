@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mesajlaşma</title>
+  <link rel="stylesheet" href="chat.css" />
+</head>
+<body>
+  <div class="chat-container">
+    <div class="sidebar">
+      <h2>Arkadaşlar</h2>
+      <ul id="friend-list">
+        <!-- Arkadaşlar buraya gelecek -->
+      </ul>
+    </div>
+
+    <div class="chat-box">
+      <div id="chat-header">Birini seç</div>
+      <div id="chat-messages"></div>
+      <div class="input-area">
+        <input type="text" id="message-input" placeholder="Mesaj yaz..." />
+        <button id="send-btn">Gönder</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="chat.js"></script>
+</body>
+</html>
