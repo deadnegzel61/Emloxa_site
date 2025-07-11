@@ -1,8 +1,10 @@
+// Şifre göster/gizle
 document.getElementById("show-password").addEventListener("change", function () {
   const passwordInput = document.getElementById("password");
   passwordInput.type = this.checked ? "text" : "password";
 });
 
+// Giriş / Kayıt geçiş kontrolü
 const formTitle = document.getElementById("form-title");
 const toggleLink = document.getElementById("toggle-link");
 const form = document.getElementById("auth-form");
@@ -15,23 +17,24 @@ toggleLink.addEventListener("click", () => {
   toggleLink.textContent = isLogin ? "Kayıt Ol" : "Giriş Yap";
 });
 
-// 💥 BURASI YENİ: Giriş/Kayıt simülasyonu
+// Form gönderilince
 form.addEventListener("submit", (e) => {
-  e.preventDefault(); // Sayfa yenilenmesini engelle
-  const email = form.elements[0].value;
-  const password = form.elements[1].value;
+  e.preventDefault();
+
+  const email = form.elements[0].value.trim();
+  const password = form.elements[1].value.trim();
 
   if (!email || !password) {
     alert("E-posta ve şifre boş olamaz!");
     return;
   }
 
-  // Giriş veya kayıt yapıldığında yönlendirme
   if (isLogin) {
-    alert("Giriş başarılı! Yönlendiriliyor...");
-    window.location.href = "friends.html"; // veya chat.html
+    // Giriş başarılı → yönlendirme (GitHub Pages uyumlu)
+    console.log("Giriş başarılı → yönlendiriliyor...");
+    window.location.href = "./friends.html";
   } else {
-    alert("Kayıt başarılı! Giriş yapabilirsin.");
-    toggleLink.click(); // Kayıt olduktan sonra giriş moduna geç
+    alert("Kayıt başarılı! Şimdi giriş yapabilirsin.");
+    toggleLink.click(); // Giriş moduna geç
   }
 });
