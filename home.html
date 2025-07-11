@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Emloxa - Ana Sayfa</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <ul class="tabs">
+        <li class="tab active" data-page="chat.html">Chat</li>
+        <li class="tab" data-page="friends.html">Friends</li>
+        <li class="tab" data-page="home.html">Home</li>
+        <li class="tab" data-page="settings.html">Settings</li>
+      </ul>
+    </nav>
+    <div id="profile-info"></div>
+  </header>
+
+  <main>
+    <iframe id="page-frame" src="chat.html" frameborder="0"></iframe>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
