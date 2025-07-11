@@ -2,25 +2,37 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Arkadaşlar</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arkadaşlar ve Mesajlar</title>
   <link rel="stylesheet" href="friends.css" />
 </head>
 <body>
   <div class="container">
     <div class="sidebar">
-      <h2>Arkadaşlarım</h2>
-      <ul id="friend-list">
-        <!-- Arkadaşlar buraya eklenecek -->
-      </ul>
+      <h2>Profilim</h2>
+      <div id="my-profile"></div>
+
+      <h2>Arkadaşlar</h2>
+      <ul id="friend-list"></ul>
+
+      <h2>Arkadaş Ekle</h2>
+      <input type="text" id="add-friend-input" placeholder="Kullanıcı adı#1234" />
+      <button id="send-request-btn" disabled>İstek Gönder</button>
+
+      <h2>Gelen İstekler</h2>
+      <ul id="requests-list"></ul>
     </div>
-    <div class="main">
-      <h2>Kullanıcılar</h2>
-      <div id="user-list">
-        <!-- Kullanıcılar buraya gelecek -->
+
+    <div class="main-chat">
+      <div id="chat-header">Bir arkadaş seç</div>
+      <div id="chat-messages"></div>
+      <div class="input-area">
+        <input type="text" id="message-input" placeholder="Mesaj yaz..." disabled />
+        <button id="send-msg-btn" disabled>Gönder</button>
       </div>
     </div>
   </div>
+
   <script src="friends.js"></script>
 </body>
 </html>
