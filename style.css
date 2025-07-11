@@ -1,0 +1,89 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", sans-serif;
+}
+
+body, html {
+  height: 100%;
+  background: linear-gradient(135deg, #2c003e, #4b0082);
+  overflow: hidden;
+  color: white;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+.form-box {
+  background: rgba(0, 0, 0, 0.6);
+  padding: 30px;
+  border-radius: 15px;
+  width: 300px;
+  box-shadow: 0 0 20px #8000ff;
+}
+
+.form-box h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #e0b3ff;
+}
+
+.form-box input[type="email"],
+.form-box input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  background: #222;
+  border: 1px solid #8000ff;
+  color: white;
+  border-radius: 5px;
+}
+
+.form-box button {
+  width: 100%;
+  padding: 10px;
+  background: #8000ff;
+  border: none;
+  color: white;
+  font-weight: bold;
+  border-radius: 5px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.form-box button:hover {
+  background: #a94eff;
+}
+
+.options {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85em;
+  margin-top: 10px;
+}
+
+.toggle {
+  text-align: center;
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+
+.toggle span {
+  color: #b366ff;
+  cursor: pointer;
+}
