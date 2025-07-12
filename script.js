@@ -4,22 +4,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- Sayfa Yönlendirme ve Giriş Kontrolü (index.html ve kayit.html için) ---
     const setupAuthPages = () => {
-        const loginButton = document.querySelector('#index-login-btn'); // ID ekledik
-        const registerButton = document.querySelector('#kayit-btn'); // ID ekledik
+        const loginButton = document.querySelector('#index-login-btn');
+        const registerButton = document.querySelector('#kayit-btn');
 
         if (loginButton) {
             loginButton.addEventListener('click', (e) => {
                 e.preventDefault();
-                const emailInput = document.getElementById('email');
+                const emailInput = document.getElementById('email'); // index.html'deki email input'u
                 const passwordInput = document.getElementById('password');
 
-                // Basit bir simülasyon: Kullanıcı adı "Emloxa", Şifre "123"
-                if (emailInput.value === 'Emloxa' && passwordInput.value === '123') {
-                    localStorage.setItem('currentUser', 'Emloxa');
+                // *** Buradaki kullanıcı adı ve şifreyi değiştirebilirsiniz ***
+                const expectedUsername = 'Emloxa';
+                const expectedPassword = '123';
+
+                if (emailInput.value === expectedUsername && passwordInput.value === expectedPassword) {
+                    localStorage.setItem('currentUser', expectedUsername); // Giriş yapan kullanıcı adını kaydet
                     localStorage.setItem('currentUserTag', generateRandomTag());
                     window.location.href = 'main.html';
                 } else {
-                    alert('Hatalı kullanıcı adı veya şifre!');
+                    alert('Hatalı kullanıcı adı veya şifre! Lütfen Emloxa ve 123 kullanın.');
                 }
             });
         }
@@ -28,7 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             registerButton.addEventListener('click', (e) => {
                 e.preventDefault();
                 const usernameInput = document.getElementById('username');
-                const emailInput = document.getElementById('email');
+                const emailInput = document.getElementById('email'); // kayit.html'deki email input'u
                 const passwordInput = document.getElementById('password');
                 const confirmPasswordInput = document.getElementById('confirm-password');
 
@@ -42,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     return;
                 }
 
-                // Basit kayıt simülasyonu: Kullanıcı adını ve rastgele etiketi kaydet
+                // Kayıt olan kullanıcının bilgilerini kaydet (şimdilik bu, gerçek bir veritabanı değil)
                 localStorage.setItem('currentUser', usernameInput.value.trim());
                 localStorage.setItem('currentUserTag', generateRandomTag());
                 alert('Kaydınız başarıyla oluşturuldu! Şimdi giriş yapabilirsiniz.');
@@ -64,27 +67,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const sendMessageBtn = document.getElementById('sendMessageBtn');
         const messageArea = document.querySelector('.message-area');
 
-        // Kullanıcı Adı ve Rastgele Etiketi Ayarlama
+        // localStorage'dan kullanıcı bilgilerini çek
         const currentUser = localStorage.getItem('currentUser');
         const currentUserTag = localStorage.getItem('currentUserTag');
 
-        // Eğer kullanıcı yoksa veya login olmamışsa giriş sayfasına yönlendir
+        // Eğer kullanıcı yoksa veya giriş yapmamışsa giriş sayfasına yönlendir
         if (!currentUser || !currentUserTag) {
             window.location.href = 'index.html';
-            return; // Kodu burada kes
+            return; // Kodun daha fazla çalışmasını engelle
         }
 
+        // Kullanıcı adını ve etiketini göster
         displayUsername.textContent = `${currentUser}#${currentUserTag}`;
 
         // Başlangıç kanalları ve arkadaşlar (şimdilik sadece kanallar)
+        // Her öğe için bir 'messages' dizisi tuttuk.
         let channelsAndFriends = [
-            { name: 'Genel', type: 'channel', messages: [] },
-            { name: 'Oyun Sohbeti', type: 'channel', messages: [] },
-            { name: 'Yardım', type: 'channel', messages: [] }
+            { id: 'genel', name: 'Genel', type: 'channel', messages: [] },
+            { id: 'oyun', name: 'Oyun Sohbeti', type: 'channel', messages: [] },
+            { id: 'yardim', name: 'Yardım', type: 'channel', messages: [] }
         ];
 
         let currentActiveItem = null; // Aktif öğeyi tutmak için
 
+        // Kanal/Arkadaş listesini çizen fonksiyon
         const renderChannelList = () => {
             channelList.innerHTML = ''; // Listeyi temizle
             channelsAndFriends.forEach(item => {
@@ -92,6 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 li.classList.add('channel-item');
                 li.textContent = item.name;
                 li.dataset.type = item.type; // 'channel' veya 'friend'
+                li.dataset.id = item.id; // Her öğeye benzersiz bir ID ver (şimdilik name ile aynı olabilir)
 
                 if (item === currentActiveItem) {
                     li.classList.add('active');
@@ -100,6 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         };
 
+        // Aktif kanal/arkadaşı ayarlayan fonksiyon
         const setActiveItem = (item) => {
             currentActiveItem = item;
             renderChannelList(); // Listeyi yeniden çizmek için
@@ -111,6 +119,7 @@ document.addEventListener('DOMContentLoaded', () => {
             displayMessages(item.messages); // Yeni kanalın/arkadaşın mesajlarını göster
         };
 
+        // Mesajları sohbet alanına basan fonksiyon
         const displayMessages = (messages) => {
             messageArea.innerHTML = ''; // Sohbet alanını tamamen temizle
             messages.forEach(msg => {
@@ -119,6 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
             messageArea.scrollTop = messageArea.scrollHeight; // En alta kaydır
         };
 
+        // Tek bir mesajı sohbet alanına ekleyen fonksiyon
         const addMessageToChat = (author, text, time, isOwn = false) => {
             const messageDiv = document.createElement('div');
             messageDiv.classList.add('message');
@@ -159,6 +169,7 @@ document.addEventListener('DOMContentLoaded', () => {
         channelList.addEventListener('click', (e) => {
             if (e.target.classList.contains('channel-item')) {
                 const selectedItemName = e.target.textContent;
+                // 'id' ile bulmak daha güvenli olabilir, şimdilik name ile bulalım.
                 const selectedItem = channelsAndFriends.find(item => item.name === selectedItemName);
                 if (selectedItem) {
                     setActiveItem(selectedItem);
@@ -170,7 +181,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (addFriendButton && addFriendInputArea) {
             addFriendButton.addEventListener('click', () => {
                 addFriendInputArea.style.display = addFriendInputArea.style.display === 'none' ? 'flex' : 'none';
-                addFriendInput.focus();
+                if (addFriendInputArea.style.display === 'flex') {
+                    addFriendInput.focus(); // Input açılınca odaklan
+                }
             });
         }
 
@@ -184,14 +197,20 @@ document.addEventListener('DOMContentLoaded', () => {
                         return;
                     }
 
-                    const newFriend = { name: friendUsername, type: 'friend', messages: [] };
+                    // Kendi kendine arkadaş eklemeyi engelle
+                    if (friendUsername === currentUser) {
+                        alert('Kendinizi arkadaş olarak ekleyemezsiniz!');
+                        return;
+                    }
+
+                    // Simülasyon: Arkadaşı listeye ekle
+                    const newFriend = { id: friendUsername, name: friendUsername, type: 'friend', messages: [] };
                     channelsAndFriends.push(newFriend);
                     
-                    addFriendInput.value = '';
-                    addFriendInputArea.style.display = 'none';
+                    addFriendInput.value = ''; // Input'u temizle
+                    addFriendInputArea.style.display = 'none'; // Alanı gizle
 
                     setActiveItem(newFriend); // Yeni eklenen arkadaşı aktif yap
-
                     alert(`${friendUsername} arkadaş olarak eklendi! (Bu sadece bir simülasyondur)`);
                 } else {
                     alert('Lütfen bir kullanıcı adı girin.');
@@ -208,18 +227,19 @@ document.addEventListener('DOMContentLoaded', () => {
                     const newMessage = { author: currentUser, text: messageText, time: currentTime, isOwn: true };
                     currentActiveItem.messages.push(newMessage);
                     addMessageToChat(currentUser, messageText, currentTime, true);
-                    messageInput.value = '';
+                    messageInput.value = ''; // Input'u temizle
 
                     // Basit bir bot cevabı simülasyonu
                     setTimeout(() => {
                         const botMessage = {
-                            author: 'Bot',
+                            author: 'Bot', // Bot veya arkadaşın adı
                             text: `Merhaba ${currentUser}! "${messageText}" mesajına cevap veriyorum.`,
                             time: new Date().toLocaleTimeString('tr-TR', { hour: '2-digit', minute: '2-digit' }),
                             isOwn: false
                         };
                         currentActiveItem.messages.push(botMessage);
                         addMessageToChat(botMessage.author, botMessage.text, botMessage.time, botMessage.isOwn);
+                        messageArea.scrollTop = messageArea.scrollHeight; // Bot mesajından sonra da kaydır
                     }, 1000);
                 }
             });
@@ -231,12 +251,13 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // Sayfa yüklendiğinde varsayılan olarak "Genel" kanalını seç ve render et
+        // Sayfa yüklendiğinde varsayılan olarak ilk kanalı seç (Genel)
         setActiveItem(channelsAndFriends[0]);
     };
 
     // Hangi sayfada olduğumuza göre ilgili fonksiyonu çağır
-    if (document.body.classList.contains('app-container')) { // main.html'i temsil eden sınıf
+    // body'de 'app-container' sınıfı varsa main.html'dir
+    if (document.body.classList.contains('app-container')) {
         setupMainPage();
     } else { // index.html veya kayit.html
         setupAuthPages();
