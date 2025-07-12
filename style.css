@@ -10,6 +10,7 @@ body {
     color: #dcddde; /* Açık gri metin rengi */
 }
 
+/* --- Genel Kapsayıcı ve Kimlik Doğrulama Kartı Stilleri --- */
 .container {
     width: 100%;
     max-width: 400px;
@@ -97,4 +98,244 @@ body {
 
 .link-text a:hover {
     color: #008cd4;
+}
+
+/* --- Ana Uygulama Düzeni --- */
+.app-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    background-color: #36393f; /* Ana uygulama arka planı */
+}
+
+/* --- Sol Kenar Çubuğu (Sidebar) --- */
+.sidebar {
+    width: 240px;
+    background-color: #2f3136; /* Sidebar arka planı */
+    color: #dcddde;
+    display: flex;
+    flex-direction: column;
+    padding: 10px 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0; /* Küçülmesini engeller */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 15px;
+    border-bottom: 1px solid #202225;
+    margin-bottom: 10px;
+}
+
+.sidebar-header h3 {
+    margin: 0;
+    font-size: 16px;
+    color: #fff;
+}
+
+.sidebar-header .add-button {
+    background-color: #43b581; /* Discord'un yeşili */
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    font-size: 18px;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.2s ease;
+}
+
+.sidebar-header .add-button:hover {
+    background-color: #3aa675;
+}
+
+.channel-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Mevcut alanı doldurur */
+    overflow-y: auto; /* Kanallar çok olursa kaydırma çubuğu çıkar */
+}
+
+.channel-item {
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+    border-radius: 4px;
+    margin: 0 8px;
+    font-size: 15px;
+}
+
+.channel-item:hover {
+    background-color: #3a3c42;
+}
+
+.channel-item.active {
+    background-color: #40444b; /* Seçili kanal rengi */
+    color: #fff;
+    font-weight: bold;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    background-color: #292b2f; /* Kullanıcı bilgi alanı arka planı */
+    padding: 10px 15px;
+    margin-top: auto; /* Alt kısma yapıştırır */
+    border-top: 1px solid #202225;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    background-color: #7289da; /* Avatar rengi */
+    border-radius: 50%;
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+.username {
+    font-weight: 600;
+    font-size: 14px;
+    color: #fff;
+    white-space: nowrap; /* Kullanıcı adının tek satırda kalmasını sağlar */
+    overflow: hidden;
+    text-overflow: ellipsis; /* Taşarsa üç nokta ekler */
+}
+
+/* --- Ana İçerik Alanı (Main Content) --- */
+.main-content {
+    flex-grow: 1; /* Kalan tüm alanı kaplar */
+    display: flex;
+    flex-direction: column;
+    background-color: #36393f; /* Ana arka plan */
+}
+
+.chat-header {
+    background-color: #36393f; /* Başlık çubuğu arka planı */
+    padding: 15px 20px;
+    border-bottom: 1px solid #2f3136;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.chat-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.message-area {
+    flex-grow: 1; /* Mesajların olduğu alanı doldurur */
+    padding: 20px;
+    overflow-y: auto; /* Mesajlar çok olursa kaydırma çubuğu çıkar */
+    display: flex;
+    flex-direction: column;
+    gap: 15px; /* Mesajlar arası boşluk */
+}
+
+.message {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.message-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: #7289da; /* Avatar rengi */
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.message-content {
+    background-color: #40444b; /* Mesaj balonu arka planı */
+    padding: 10px 15px;
+    border-radius: 8px;
+    max-width: 70%; /* Mesaj balonunun maksimum genişliği */
+    word-wrap: break-word; /* Uzun kelimeleri kırar */
+}
+
+.message.own-message {
+    align-self: flex-end; /* Kendi mesajlarını sağa hizala */
+}
+
+.message.own-message .message-content {
+    background-color: #7289da; /* Kendi mesaj balonunun rengi */
+    color: white;
+}
+
+.message-author {
+    font-weight: bold;
+    color: #00aff4; /* Yazar adı rengi */
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.message.own-message .message-author {
+    color: #c9d2f7; /* Kendi yazar adının rengi */
+}
+
+.message-time {
+    font-size: 12px;
+    color: #92959a;
+    font-weight: normal;
+    margin-left: 8px;
+}
+
+.message-text {
+    font-size: 16px;
+    color: #dcddde;
+}
+
+.message.own-message .message-text {
+    color: white;
+}
+
+
+.message-input-area {
+    background-color: #36393f; /* Giriş alanı arka planı */
+    padding: 15px 20px;
+    border-top: 1px solid #2f3136;
+    display: flex;
+    gap: 10px;
+    flex-shrink: 0;
+}
+
+.message-input-area input[type="text"] {
+    flex-grow: 1; /* Kalan alanı kaplar */
+    padding: 12px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #40444b; /* Input arka plan rengi */
+    color: #dcddde;
+    font-size: 16px;
+    outline: none; /* Odaklanınca çıkan çerçeveyi kaldırır */
+}
+
+.message-input-area input[type="text"]::placeholder {
+    color: #92959a;
+}
+
+.message-input-area .send-button {
+    background-color: #7289da;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    flex-shrink: 0;
+}
+
+.message-input-area .send-button:hover {
+    background-color: #677bc4;
 }
