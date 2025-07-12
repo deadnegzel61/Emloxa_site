@@ -10,26 +10,28 @@
     <div class="app-container">
         <div class="sidebar">
             <div class="sidebar-header">
-                <h3>Sunucu / Arkadaş Listesi</h3>
-                <button class="add-button">+</button>
+                <h3>Mesajlar</h3> <button class="add-friend-button">+</button>
             </div>
+            
+            <div class="add-friend-input-area" style="display: none;">
+                <input type="text" id="addFriendInput" placeholder="Arkadaş kullanıcı adını girin">
+                <button id="sendFriendRequestBtn">Ekle</button>
+            </div>
+
             <ul class="channel-list">
-                <li class="channel-item active">Genel</li>
-                <li class="channel-item">Oyun Sohbeti</li>
-                <li class="channel-item">Yardım</li>
-                <li class="channel-item">Arkadaş - Ayşe</li>
-                <li class="channel-item">Arkadaş - Can</li>
-            </ul>
+                <li class="channel-item active" data-type="channel">Genel</li>
+                <li class="channel-item" data-type="channel">Oyun Sohbeti</li>
+                <li class="channel-item" data-type="channel">Yardım</li>
+                </ul>
+            
             <div class="user-info">
                 <div class="user-avatar"></div>
-                <span class="username">KullanıcıAdı#1234</span>
-            </div>
+                <span class="username" id="displayUsername"></span> </div>
         </div>
 
         <div class="main-content">
             <div class="chat-header">
-                <h2>#Genel</h2>
-            </div>
+                <h2 id="chatHeaderTitle">#Genel</h2> </div>
             <div class="message-area">
                 <div class="message">
                     <div class="message-avatar"></div>
@@ -47,8 +49,8 @@
                 </div>
             </div>
             <div class="message-input-area">
-                <input type="text" placeholder="Mesaj gönder...">
-                <button class="send-button">Gönder</button>
+                <input type="text" id="messageInput" placeholder="Mesaj gönder...">
+                <button id="sendMessageBtn" class="send-button">Gönder</button>
             </div>
         </div>
     </div>
