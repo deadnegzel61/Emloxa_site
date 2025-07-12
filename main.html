@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ana Ekran - Discord Benzeri</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <h3>Sunucu / Arkadaş Listesi</h3>
+                <button class="add-button">+</button>
+            </div>
+            <ul class="channel-list">
+                <li class="channel-item active">Genel</li>
+                <li class="channel-item">Oyun Sohbeti</li>
+                <li class="channel-item">Yardım</li>
+                <li class="channel-item">Arkadaş - Ayşe</li>
+                <li class="channel-item">Arkadaş - Can</li>
+            </ul>
+            <div class="user-info">
+                <div class="user-avatar"></div>
+                <span class="username">KullanıcıAdı#1234</span>
+            </div>
+        </div>
+
+        <div class="main-content">
+            <div class="chat-header">
+                <h2>#Genel</h2>
+            </div>
+            <div class="message-area">
+                <div class="message">
+                    <div class="message-avatar"></div>
+                    <div class="message-content">
+                        <div class="message-author">Ayşe <span class="message-time">10:00 AM</span></div>
+                        <div class="message-text">Merhaba herkese!</div>
+                    </div>
+                </div>
+                <div class="message own-message">
+                    <div class="message-avatar"></div>
+                    <div class="message-content">
+                        <div class="message-author">Sen <span class="message-time">10:01 AM</span></div>
+                        <div class="message-text">Selam Ayşe, hoş geldin!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="message-input-area">
+                <input type="text" placeholder="Mesaj gönder...">
+                <button class="send-button">Gönder</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
