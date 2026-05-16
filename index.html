@@ -3,27 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Giriş Yap - Discord Benzeri</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Dirse Han Oğlu Boğaç Han - Tiyatro Metni</title>
+    <style>
+        :root {
+            --bg-color: #121212;
+            --container-bg: #1e1e1e;
+            --text-color: #e0e0e0;
+            --accent-color: #ff9800;
+            --character-color: #ffcc80;
+            --border-color: #333;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: var(--container-bg);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--accent-color);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            margin-top: 30px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 5px;
+        }
+
+        .cast-list {
+            background-color: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .cast-list ul {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .cast-list li {
+            background: #333;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .scene {
+            margin-bottom: 40px;
+        }
+
+        .character {
+            font-weight: bold;
+            color: var(--character-color);
+            font-size: 1.1em;
+            margin-top: 15px;
+        }
+
+        .action {
+            font-style: italic;
+            color: #9e9e9e;
+            margin: 5px 0;
+            font-size: 0.95em;
+        }
+
+        .dialogue {
+            margin-bottom: 15px;
+            padding-left: 20px;
+            border-left: 2px solid #444;
+        }
+
+        .materials {
+            background-color: #2c2214;
+            border: 1px solid var(--accent-color);
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 0.9em;
+            color: #777;
+        }
+    </style>
 </head>
 <body>
+
     <div class="container">
-        <div class="auth-card">
-            <h2>Giriş Yap</h2>
-            <form>
-                <div class="form-group">
-                    <label for="email">E-posta (veya Kullanıcı Adı)</label>
-                    <input type="text" id="email" name="email" placeholder="Kullanıcı adınızı/e-posta adresinizi girin" required>
-                </div>
-                <div class="form-group">
-                    <label for="password">Şifre</label>
-                    <input type="password" id="password" name="password" placeholder="Şifrenizi girin" required>
-                </div>
-                <button type="submit" class="btn" id="index-login-btn">Giriş Yap</button>
-            </form>
-            <p class="link-text">Hesabın yok mu? <a href="kayit.html">Şimdi kaydol</a></p>
+        <h1>Dirse Han Oğlu Boğaç Han</h1>
+
+        <div class="materials">
+            <strong>Gerekli Malzemeler:</strong> Sadece 2 adet sandalye (Biri taht, diğeri oturma alanı). Ekstra dekora gerek yoktur!
         </div>
+
+        <div class="cast-list">
+            <h3 style="margin-top:0; color:var(--accent-color);">🎭 Oyuncu Kadrosu</h3>
+            <ul>
+                <li><strong>Boğaç Han:</strong> Muhammed Emrullah Gezgel</li>
+                <li><strong>Dirse Han:</strong> Ömer Faruk Aydemir</li>
+                <li><strong>Dede Korkut:</strong> Osman Nuri Atay</li>
+                <li><strong>Bayındır Han:</strong> Halil İbrahim Yucak</li>
+                <li><strong>1. Hasetçi Bey:</strong> Kadirhan Hacıhasanoğlu</li>
+                <li><strong>2. Hasetçi Bey:</strong> Emir Ali Baş</li>
+                <li><strong>Boğa:</strong> Süleyman Anıl Mercan</li>
+            </ul>
+        </div>
+
+        <div class="scene">
+            <h2>1. SAHNE: KARA OTAĞ</h2>
+            <div class="action">(Sahnenin ortasında Bayındır Han sandalyede oturmaktadır. Sağında ve solunda Beyler elleri önde bağlı durur. Dede Korkut sahnenin köşesinden öne çıkar.)</div>
+
+            <div class="character">Dede Korkut (Osman Nuri):</div>
+            <div class="dialogue">Hey erenler! Boy boylayalım, soy soylayalım. Kam Gan oğlu Bayındır Han bir gün toy kurdu. Dedi ki: "Kız çocuğu olanı Kırmızı Otağ'a, hiç çocuğu olmayanı Kara Otağ'a oturtun!"</div>
+            
+            <div class="action">(Dede Korkut geriye çekilir. Dirse Han boynu bükük şekilde sahneye girer.)</div>
+
+            <div class="character">Bayındır Han (Halil İbrahim):</div>
+            <div class="action">(Gür bir sesle)</div>
+            <div class="dialogue">Bre Dirse Han! Senin ne oğlun var ne kızın. Geç otur şu Kara Otağ'a! Tanrı seni lanetlemiş, biz de lanetleriz!</div>
+
+            <div class="character">Dirse Han (Ömer Faruk):</div>
+            <div class="action">(Üzgün ve sinirli bir şekilde sandalyeye oturur, ellerini yüzüne kapatır)</div>
+            <div class="dialogue">Boynum kıldan incedir Han'ım. Ama elbet benim de bir gün aslanlar gibi bir oğlum olacak!</div>
+        </div>
+
+        <div class="scene">
+            <h2>2. SAHNE: BOĞA GÜREŞİ</h2>
+            <div class="action">(Dirse Han sahneden çıkar. Boğaç Han sahnenin ortasında dikilir, kollarını kavuşturmuştur. Dede Korkut tekrar öne çıkar.)</div>
+
+            <div class="character">Dede Korkut (Osman Nuri):</div>
+            <div class="dialogue">Dirse Han'ın duaları kabul oldu, koç yiğit bir oğlu oldu. Yıllar geçti, çocuk on beş yaşına bastı. Bir gün Bayındır Han'ın yenilmez, vahşi boğası zincirlerinden kurtuldu!</div>
+
+            <div class="action">(Boğa (Süleyman Anıl) iki işaret parmağını boynuz gibi kafasına koyar, ayaklarını yere vurarak ve homurdanarak sahneye girer. Sağa sola saldırır gibi yapar. Herkes korkup kaçışır, sadece Boğaç Han yerinde durur.)</div>
+
+            <div class="character">Boğaç Han (Muhammed Emrullah):</div>
+            <div class="action">(Kendinden emin)</div>
+            <div class="dialogue">Bre yaban öküzü! Herkes senden korkar ama ben korkmam. Gel bakalım buraya!</div>
+
+            <div class="action">(Boğa koşarak Boğaç Han'a toslar. Boğaç Han elleriyle onun "boynuzlarını" tutar. İkisi ufak bir itişme taklidi yapar. En sonunda Boğaç Han, Boğa'nın kafasına yalandan sert bir yumruk atar. Boğa yere yığılır.)</div>
+
+            <div class="character">Dede Korkut (Osman Nuri):</div>
+            <div class="action">(Heyecanla)</div>
+            <div class="dialogue">Yiğit yumruğu vurdu, boğayı yere serdi! Ben geldim, bu yiğide ad verdim! Boğayı yendiği için adı <strong>Boğaç Han</strong> olsun! Adını ben verdim, yaşını Allah versin!</div>
+        </div>
+
+        <div class="scene">
+            <h2>3. SAHNE: İFTİRA VE İHANET</h2>
+            <div class="action">(Boğaç Han gururla dikilirken, Hasetçi Beyler sahnenin kenarında fısır fısır konuşurlar.)</div>
+
+            <div class="character">1. Hasetçi Bey (Kadirhan):</div>
+            <div class="dialogue">Gördün mü Emir... Boğaç Han boğayı yendi, babasının gözüne girdi. Bizi artık kimse umursamaz.</div>
+
+            <div class="character">2. Hasetçi Bey (Emir Ali):</div>
+            <div class="dialogue">Haklısın Kadirhan. Gidip Dirse Han'a bir yalan söyleyelim, oğluna düşman edelim onu.</div>
+
+            <div class="action">(İkisi sinsice Dirse Han'ın yanına giderler.)</div>
+
+            <div class="character">1. Hasetçi Bey (Kadirhan):</div>
+            <div class="dialogue">Han'ım duyduk ki oğlun Boğaç Han sana isyan edecekmiş!</div>
+
+            <div class="character">2. Hasetçi Bey (Emir Ali):</div>
+            <div class="dialogue">Evet Han'ım! Çevresine adam toplamış, "Babamı tahttan indireceğim" diyormuş. Ava çıktığınızda dikkat et!</div>
+
+            <div class="character">Dirse Han (Ömer Faruk):</div>
+            <div class="action">(Öfkeyle ayağa kalkar)</div>
+            <div class="dialogue">Ne dersiniz siz? Kendi canımdan olan bana ihanet mi edecek? Onu avda kendi okumla vuracağım!</div>
+        </div>
+
+        <div class="scene">
+            <h2>4. SAHNE: YARALANMA VE SON</h2>
+            <div class="action">(Sahnenin ortasında Boğaç Han etrafa bakarak yürür (avlanıyormuş gibi). Dirse Han arkadan gizlice yaklaşır, elinde hayali bir ok ve yay vardır.)</div>
+
+            <div class="character">Dirse Han (Ömer Faruk):</div>
+            <div class="dialogue">Affet beni oğlum! Ama ihanetin bedeli ölümdür!</div>
+            <div class="action">(Yayını gerer ve hayali oku bırakır: "Vıııızz!" sesi çıkarır.)</div>
+
+            <div class="character">Boğaç Han (Muhammed Emrullah):</div>
+            <div class="action">(Göğsünü tutarak yere diz çöker)</div>
+            <div class="dialogue">Ahh! Baba... Neden? Benim hiçbir suçum yoktu...</div>
+            
+            <div class="action">(Dirse Han pişmanlık içinde ellerine bakarak sahneden koşarak çıkar. Dede Korkut yavaşça Boğaç Han'ın yanına gelir.)</div>
+
+            <div class="character">Dede Korkut (Osman Nuri):</div>
+            <div class="action">(Boğaç Han'ın omuzuna dokunur)</div>
+            <div class="dialogue">Korkma yiğidim. Dağ çiçeği ve anne sütü senin yarana merhem olur. Senin kalbin temizdir, sana iftira attılar.</div>
+
+            <div class="action">(Boğaç Han yavaşça ayağa kalkar, iyileşmiş gibi dik durur. Tüm grup sahnenin ortasında yan yana dizilir.)</div>
+
+            <div class="character">Dede Korkut (Osman Nuri):</div>
+            <div class="dialogue">Sonunda yalan ortaya çıktı. Dirse Han hatasını anladı, hasetçiler cezasını buldu. Kutuplar yıkılmasın, gölgeli koca ağacın kesilmesin yiğidim. Amin diyenler Tanrı'nın yüzünü görsün! Hey!</div>
+
+            <div class="action">(Tüm grup aynı anda hafifçe öne eğilerek sınıfı selamlar.)</div>
+        </div>
+
+        <footer>
+            <p>10. Sınıf Edebiyat Performans Ödevi İçin Hazırlanmıştır.</p>
+        </footer>
     </div>
-    <script src="script.js"></script>
+
 </body>
 </html>
